@@ -8,10 +8,9 @@ import retrofit2.http.Query
 
 interface NetworkService {
 
-    @GET("{location}/{limitDays}")
+    @GET("{location}")
     suspend fun getWeatherInfo(
         @Path("location") location: String,
-        @Path("limitDays") limitDays: String,
         @Query("key") key: String
     ): NetworkResponse<WeatherResponse, String>
 

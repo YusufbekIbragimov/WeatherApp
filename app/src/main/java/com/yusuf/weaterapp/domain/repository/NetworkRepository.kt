@@ -6,7 +6,6 @@ import com.yusuf.weaterapp.data.network.response.WeatherResponse
 interface NetworkRepository {
     suspend fun getDaysInfo(
         key: String,
-        location: String,
-        dayLimit: String
+        location: String
     ): NetworkResponse<WeatherResponse, String>
 }

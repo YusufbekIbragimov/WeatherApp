@@ -4,7 +4,6 @@ class Constants {
     companion object {
         const val BASE_URL = "https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/"
         const val LOCATION = "Tashkent,UZ"
-        const val DAYS_LIMIT = "last10days"
 
         /**
          *  Usually, we have to save apiKeys in gradle.properties file

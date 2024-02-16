@@ -11,9 +11,8 @@ class NetworkRepositoryImpl @Inject constructor(
 ) : NetworkRepository {
     override suspend fun getDaysInfo(
         key: String,
-        location: String,
-        dayLimit: String
+        location: String
     ): NetworkResponse<WeatherResponse, String> {
-        return service.getWeatherInfo(location, dayLimit, key)
+        return service.getWeatherInfo(location, key)
     }
 }

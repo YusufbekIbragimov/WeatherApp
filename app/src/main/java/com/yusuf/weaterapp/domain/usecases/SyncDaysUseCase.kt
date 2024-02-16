@@ -20,8 +20,7 @@ class SyncDaysUseCase @Inject constructor(
             when (
                 val result = repository.getDaysInfo(
                     Constants.API_KEY,
-                    Constants.LOCATION,
-                    Constants.DAYS_LIMIT
+                    Constants.LOCATION
                 )
             ) {
                 is NetworkResponse.Success -> {
