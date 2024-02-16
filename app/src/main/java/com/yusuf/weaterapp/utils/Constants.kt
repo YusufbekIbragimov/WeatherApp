@@ -11,6 +11,6 @@ class Constants {
          *  and you have to add gradle.properties file to .gitignore
          *  I will do that for github version
          */
-        const val API_KEY = "YPQAHJ6L4T46C5C26A3B5BA72"
+        const val API_KEY = "YJDDLDXYRX5Z6RD2KTEKVRCNM"
     }
 }
