@@ -12,6 +12,6 @@ data class Hour(
     val temp: Double,
 )
 
-fun Hour.toEntity(): HourEntity {
-    return HourEntity(datetime, temp)
+fun Hour.toEntity(day: String): HourEntity {
+    return HourEntity(time = datetime, datetime = day, temp = temp)
 }

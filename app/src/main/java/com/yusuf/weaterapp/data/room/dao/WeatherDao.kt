@@ -12,8 +12,11 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface WeatherDao {
-    @Query("SELECT * FROM DayEntity")
-    fun getAllDays(): Flow<List<DayEntity>>
+    @Query("SELECT * FROM DayEntity LIMIT :limit")
+    fun getAllDays(limit: Int): Flow<List<DayEntity>>
+
+    @Query("SELECT * FROM HourEntity WHERE datetime=:today AND time=:time")
+    fun getCurrentTemp(today: String, time: String): Flow<HourEntity?>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun saveAllDays(cards: List<DayEntity>)
@@ -22,6 +25,6 @@ interface WeatherDao {
     suspend fun saveAllHours(cards: List<HourEntity>)
 
     @Transaction
-    @Query("SELECT * FROM DayEntity")
-    fun getDayWithHours(): Flow<DayWithHourListEntity>
+    @Query("SELECT * FROM DayEntity WHERE datetime=:date")
+    fun getDayWithHours(date: String): Flow<DayWithHourListEntity>
 }

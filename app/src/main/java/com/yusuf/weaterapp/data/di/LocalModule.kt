@@ -1,9 +1,11 @@
 package com.yusuf.weaterapp.data.di
 
-import com.yusuf.weaterapp.data.network.repository.LocalCardRepositoryImpl
+import com.yusuf.weaterapp.data.network.repository.LocalRepositoryImpl
 import com.yusuf.weaterapp.data.network.repository.NetworkRepositoryImpl
-import com.yusuf.weaterapp.domain.repository.LocalCardRepository
+import com.yusuf.weaterapp.domain.repository.LocalRepository
 import com.yusuf.weaterapp.domain.repository.NetworkRepository
+import com.yusuf.weaterapp.presentation.navigation.AppNavigator
+import com.yusuf.weaterapp.presentation.navigation.AppNavigatorImpl
 import dagger.Binds
 import dagger.Module
 import dagger.hilt.InstallIn
@@ -15,9 +17,13 @@ import javax.inject.Singleton
 interface LocalModule {
     @Binds
     @Singleton
-    fun bindLocalRepository(localRepository: LocalCardRepositoryImpl): LocalCardRepository
+    fun bindLocalRepository(localRepository: LocalRepositoryImpl): LocalRepository
 
     @Binds
     @Singleton
     fun bindNetworkRepository(networkRepository: NetworkRepositoryImpl): NetworkRepository
+
+    @Binds
+    @Singleton
+    fun bindNavigator(nav: AppNavigatorImpl): AppNavigator
 }

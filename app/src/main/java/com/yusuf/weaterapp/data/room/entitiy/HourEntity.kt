@@ -6,10 +6,12 @@ import com.yusuf.weaterapp.domain.model.HourModel
 
 @Entity
 data class HourEntity(
-    @PrimaryKey val datetime: String,
-    val temp: Double
+    @PrimaryKey(autoGenerate = true) val id: Int = 0,
+    val time: String = "",
+    val datetime: String = "",
+    val temp: Double? = 0.0
 )
 
 fun HourEntity.toDomain(): HourModel {
-    return HourModel(datetime, temp)
+    return HourModel(time, temp ?: 0.0)
 }

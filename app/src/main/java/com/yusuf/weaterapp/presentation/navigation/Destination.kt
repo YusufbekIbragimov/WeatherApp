@@ -14,8 +14,8 @@ sealed class Destination(protected val route: String, vararg params: String) {
 
     data object DetailsScreen : Destination(DETAILS_SCREEN_ROUTE, ParamKeys.DAY_NAME_KEY) {
         const val DAY_NAME_KEY = ParamKeys.DAY_NAME_KEY
-        operator fun invoke(cardId: Int): String {
-            return route.appendParams(DAY_NAME_KEY to cardId)
+        operator fun invoke(datetime: String): String {
+            return route.appendParams(DAY_NAME_KEY to datetime)
         }
     }
 
